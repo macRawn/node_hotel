@@ -13,7 +13,7 @@ mongoose.connect(mongoURL)
         console.log("MongoDB connection error: ", err)
     })
 
-
+    
 // Get the default connection
 // Mongoose maintains a default connection object representing the MongoDB connection.
 const db = mongoose.connection;
@@ -27,9 +27,9 @@ const db = mongoose.connection;
 // })
 
 
-// db.on('error', (err) => {
-//     console.log('MongoDB connection error', err);
-// })
+db.on('error', (err) => {
+    console.log('MongoDB connection error', err);
+})
 
 
 db.on('disconnected', () => {
